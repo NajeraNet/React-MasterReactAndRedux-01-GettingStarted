@@ -10,6 +10,14 @@
       font-size: 50px;
       color: red;
     }
+    #box {
+      display: flex;
+      justify-content: center;
+      padding: 30px;
+    }
+    #number {
+      padding: 10px;
+    }
   </style>
 </head>
 <body>
@@ -22,13 +30,23 @@
   <script type="text/babel">
   //
     class Counter extends React.Component {
+      handleSubstract() {
+        console.log('handleSubstract!!!');
+      }
+      handleAdd() {
+        console.log('handleAdd!!!');
+      }
       render() {
-        return <h1>The counter Component.</h1>
+        return <div id='box'>
+          <button onClick={this.handleSubstract}>-</button>
+          <span id='number'>9</span>
+          <button onClick={this.handleAdd}>+</button>
+        </div>
       }
     }
     const App = function() {
       return <div>
-      <Counter />
+        <Counter />
       </div>
     }
     //
