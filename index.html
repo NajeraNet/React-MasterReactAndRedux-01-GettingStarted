@@ -20,23 +20,18 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
 
   <script type="text/babel">
-    const HeaderDisplay = function() {
-      return <h1>This is a Header</h1>
+  //
+    class Counter extends React.Component {
+      render() {
+        return <h1>The counter Component.</h1>
+      }
     }
-    const Clock = function (props) {
-      const date = new Date();
-      const thisYear = date.getFullYear();
-      return <h1 style={{color: props.color}}>CopyRight : {thisYear}</h1>;
-    }
-    const App = function () {
+    const App = function() {
       return <div>
-        <HeaderDisplay />
-        <Clock color="#00ff00" />
-        <Clock color="#00aa00" />
-        <Clock color="#005500" />
-      </div>;
-}
-    ReactDOM.render(<App />, document.getElementById('app'));
-
+      <Counter />
+      </div>
+    }
+    //
+    ReactDOM.render (<App />, document.getElementById('app'))
   </script>
 </html>
