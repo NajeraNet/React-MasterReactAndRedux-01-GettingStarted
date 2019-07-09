@@ -14,37 +14,29 @@
 </head>
 <body>
   <div id="app"></div>
-  <div id="app2"></div>
-  <div id="app3"></div>
-  <div id="SecondComponent"></div>
-  <input type="text" />
-  <input type="number" />
-  <input type="checkbox" />
 
   <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+
   <script type="text/babel">
-    const Header = <h1>HELLO WORLD FROM REACT</h1>;
+    const HeaderDisplay = function() {
+      return <h1>This is a Header</h1>
+    }
     const Clock = function (props) {
-      // do whatever we want.
       const date = new Date();
       const thisYear = date.getFullYear();
       return <h1 style={{color: props.color}}>CopyRight : {thisYear}</h1>;
     }
-    const Component = function () {
-      const date = new Date();
-      const Year = date.getFullYear();
-      return <h1 className="header"><p>This is my second component : {Year}</p></h1>
-    }
-    //  <input type="text" />
-    /// React.createElement('h1', null, 'HELLO WORLD FROM REACT');
-    ReactDOM.render(<Component />, document.getElementById('SecondComponent'));
-
-    ReactDOM.render(<Clock color="#00dd00" />, document.getElementById('app'));
-    ReactDOM.render(<Clock color="#00aa00" />, document.getElementById('app2'));
-    ReactDOM.render(<Clock color="#005500" />, document.getElementById('app3'));
-
+    const App = function () {
+      return <div>
+        <HeaderDisplay />
+        <Clock color="#00ff00" />
+        <Clock color="#00aa00" />
+        <Clock color="#005500" />
+      </div>;
+}
+    ReactDOM.render(<App />, document.getElementById('app'));
 
   </script>
 </html>
