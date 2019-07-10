@@ -54,6 +54,9 @@
         this.handleSubstract = this.handleSubstract.bind(this);
       }
       render() {
+        // Cada vez que el esado cambia (this.state) vuelve a renderizar la vista
+        console.log('i was rendered...')
+        // Vista
         return <div id='box'>
           <button onClick={this.handleSubstract}>-</button>
           <span id='number'>{this.state.count}</span>
