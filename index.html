@@ -30,16 +30,33 @@
   <script type="text/babel">
   //
     class Counter extends React.Component {
+      // handle event substract (-)
       handleSubstract() {
-        console.log('handleSubstract!!!');
+        // Subtract one
+        this.setState({
+          count: this.state.count -1
+        });
       }
+      // hande event add (+)
       handleAdd() {
-        console.log('handleAdd!!!');
+        this.setState({
+          count: this.state.count +1
+        });
+      }
+      // handle state component
+      constructor() {
+        super();
+        this.state = {
+          count: 0
+        }
+        // Refere this to the handle functions
+        this.handleAdd = this.handleAdd.bind(this);
+        this.handleSubstract = this.handleSubstract.bind(this);
       }
       render() {
         return <div id='box'>
           <button onClick={this.handleSubstract}>-</button>
-          <span id='number'>9</span>
+          <span id='number'>{this.state.count}</span>
           <button onClick={this.handleAdd}>+</button>
         </div>
       }
