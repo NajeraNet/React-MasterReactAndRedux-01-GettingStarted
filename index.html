@@ -11,7 +11,7 @@
       color: red;
     }
     #box {
-      display: flex;
+      display: flex-inline;
       justify-content: center;
       padding: 30px;
     }
@@ -56,8 +56,18 @@
       render() {
         // Cada vez que el esado cambia (this.state) vuelve a renderizar la vista
         console.log('i was rendered...')
+        // Another way to calculate state change
+        let type = '';
+        if (this.state.count % 2 === 0) {
+          type = 'Even';
+        } else {
+          type = 'Odd';
+        }
+        // render not used <h3>{this.state.count % 2 === 0 ? 'even' : 'odd'}</h3>
         // Vista
         return <div id='box'>
+          <h2>{type}</h2>
+          <h2>{this.state.count % 2 === 0 ? 'Par' : 'inpar'}</h2>
           <button onClick={this.handleSubstract}>-</button>
           <span id='number'>{this.state.count}</span>
           <button onClick={this.handleAdd}>+</button>
